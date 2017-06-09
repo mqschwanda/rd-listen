@@ -4,8 +4,8 @@
   "description": "Application description.",
   "license": "MIT",
   "scripts": {
-    "start": "meteor --settings .config/settings.json",
-    "start-dev": "ruby .scripts/localtunnel.rb --port 3000 --subdomain start & meteor --settings .config/settings.json",
+    "start": "meteor",
+    "start-dev": "ruby .scripts/localtunnel.rb --port 3000 --subdomain start",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000"
   },
   "devDependencies": {
@@ -94,7 +94,7 @@
     "babel-runtime": "^6.23.0",
     "bcrypt": "^1.0.2",
     "meteor-node-stubs": "^0.2.6",
-    "normalize-scss": "^7.0.0",
+    "normalize.css": "^7.0.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-addons-pure-render-mixin": "^15.5.2",
