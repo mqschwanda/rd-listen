@@ -1,0 +1,106 @@
+{
+  "name": "rd-listen",
+  "version": "1.0.0",
+  "description": "Application description.",
+  "license": "MIT",
+  "scripts": {
+    "start": "meteor --settings .config/settings.json",
+    "start-dev": "ruby .scripts/localtunnel.rb --port 3000 --subdomain start & meteor --settings .config/settings.json",
+    "test": "meteor test --driver-package practicalmeteor:mocha --port 5000"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.1",
+    "chai-enzyme": "^0.7.1",
+    "enzyme": "=2.4.1",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-class-property": "^1.0.6",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-meteor": "^4.0.1",
+    "eslint-plugin-react": "^6.4.1",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4"
+  },
+  "babel": {
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "meteor",
+      "react",
+      "class-property"
+    ],
+    "extends": [
+      "airbnb/base",
+      "plugin:meteor/guide",
+      "plugin:react/recommended"
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true,
+      "es6": true
+    },
+    "globals": {
+      "server": false,
+      "browser": false,
+      "expect": false
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/extensions": 0,
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": [
+            "_id",
+            "_ensureIndex",
+            "_verifyEmailToken",
+            "_resetPasswordToken",
+            "_name"
+          ]
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "ignoreComments": true,
+          "ignoreTrailingComments": true,
+          "ignoreUrls": true
+        }
+      ],
+      "class-methods-use-this": 0
+    }
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "^1.0.2",
+    "meteor-node-stubs": "^0.2.6",
+    "normalize-scss": "^7.0.0",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-addons-pure-render-mixin": "^15.5.2",
+    "react-addons-update": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "react-router": "^3.0.0",
+    "react-sizeme": "^2.3.2"
+  }
+}

@@ -1,0 +1,5 @@
+/* NORMALIZE */
+@import "{}/node_modules/normalize-scss/sass/normalize.scss";
+@include normalize();
+/* FONTS */
+@import "fonts/futura";

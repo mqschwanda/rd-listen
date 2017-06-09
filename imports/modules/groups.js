@@ -1,0 +1,36 @@
+import pathTo from './amazon-web-server';
+
+export default [{
+  key: 0,
+  banner: pathTo('radio-disney.png'),
+  list: [
+    'AHA RADIO',
+    'APPLE MUSIC',
+    'HD RADIO',
+    'iHEART RADIO',
+    'POPSTAR!',
+    'RADIODISNEY.COM',
+    'SIRIUSXS SATELLITE RADIO',
+    'SPOTIFY',
+    'TUNEIN RADIO',
+  ],
+}, {
+  key: 1,
+  banner: pathTo('radio-disney-country.png'),
+  list: [
+    '99.1 KRDC (LOS ANGELES, CA)',
+    'APPLE MUSIC',
+    'iHEART RADIO',
+    'SPOTIFY',
+    'TUNEIN RADIO',
+  ],
+}, {
+  key: 2,
+  banner: pathTo('radio-disney-junior.png'),
+  list: [
+    'AMAZON FREETIME UNLIMITED',
+    'DISNEY JUNIOR APP',
+    'iHEART RADIO',
+    'RADIO DISNEY JUNIOR APP',
+  ],
+}];
