@@ -5,7 +5,6 @@ import update from 'react-addons-update';
 import { Banner, List, ListItem } from '../../components';
 
 const breakpoint = 500;
-const isEven = array => array.length % 2 === 0;
 const isOdd = array => array.length % 2;
 const push = (array, value) => update(array, { $push: value });
 
@@ -23,8 +22,7 @@ export default class Group extends React.PureComponent {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { list, size } = nextProps;
-    if (isEven(list) || (size.width > breakpoint) === this.state.isHalf) return false;
+    if ((nextProps.size.width > breakpoint) === this.state.isHalf) return false;
     return true;
   }
 
@@ -34,7 +32,7 @@ export default class Group extends React.PureComponent {
     let newList;
     const { list, size } = props;
     const isHalf = size.width > breakpoint;
-    if (isOdd(list) && isHalf) newList = push(list, [<i>&nbsp;</i>]);
+    if (isOdd(list) && isHalf) newList = push(list, [(<div>&nbsp;</div>)]);
     else newList = [...list];
 
     return { newList, isHalf };

@@ -1,7 +1,7 @@
 ## Getting Started
 * [Cloning from GitHub](#cloning-from-github)
 * [Create New GitHub Repository](#create-new-github-repository)
-* [Run Locally](#run-locally)
+* [Create New Heroku App](#create-new-heroku-app)
 
 ### Cloning from GitHub
 Getting started with RD-Listen is quick and easy. From your terminal, use [Git](http://git-scm.com) to clone a copy of the repository [from GitHub](https://github.com/mqschwanda/RD-Listen).
