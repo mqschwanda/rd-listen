@@ -7,13 +7,16 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js?$/,
       exclude: /node_modules/,
       loader: 'react-hot-loader!babel-loader',
     }, {
       test: /\.css$/,
       loader: 'css-loader',
-      options: {},
+      options: {
+        modules: true,
+        localIdentName: '[path][name]_[local]--[hash:base64:8]',
+      },
     }, {
       test: /\.(ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
@@ -24,7 +27,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: `${__dirname}/client`,
+    path: __dirname + '/client',
     publicPath: '/',
     filename: 'bundle.js',
   },
