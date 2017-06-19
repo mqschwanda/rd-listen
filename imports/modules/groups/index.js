@@ -1,8 +1,8 @@
-import pathTo from './amazon-web-server';
+import { aws } from '../';
 
 export default [{
   key: 0,
-  banner: pathTo('radio-disney.png'),
+  banner: aws('radio-disney.png'),
   list: [
     'AHA RADIO',
     'APPLE MUSIC',
@@ -16,7 +16,7 @@ export default [{
   ],
 }, {
   key: 1,
-  banner: pathTo('radio-disney-country.png'),
+  banner: aws('radio-disney-country.png'),
   list: [
     '99.1 KRDC (LOS ANGELES, CA)',
     'APPLE MUSIC',
@@ -26,7 +26,7 @@ export default [{
   ],
 }, {
   key: 2,
-  banner: pathTo('radio-disney-junior.png'),
+  banner: aws('radio-disney-junior.png'),
   list: [
     'AMAZON FREETIME UNLIMITED',
     'DISNEY JUNIOR APP',

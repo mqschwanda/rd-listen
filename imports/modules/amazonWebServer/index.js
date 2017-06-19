@@ -5,6 +5,6 @@ const config = {
 
 const { bucket, folder } = config;
 
-export default function pathTo(file) {
+export default function aws(file) {
   return `https://s3.amazonaws.com/${bucket}/${folder}/${file}`;
 }

@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,9 +6,9 @@ const timestamp = () => {
   const previous = timestamp.previous || current;
 
   return timestamp.previous = current > previous ? current : previous + 1;
-}
+};
 
-const { isProduction } = Meteor;
+const isProduction = true;
 const beautify = css => css.replace(/}\s*/ig, '\n}\n');
 const minify = css => css.replace(/\n/g, '').replace(/\s\s+/g, ' ');
 
