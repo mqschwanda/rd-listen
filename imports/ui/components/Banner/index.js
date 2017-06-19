@@ -3,11 +3,9 @@
   list group.
 **/
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Banner = ({ banner }) => <img className='banner' src={banner} />;
-
-Banner.propTypes = { banner: PropTypes.string.isRequired };
-
-export default Banner;
+export default styled.img.attrs({ src: props => props.banner })`
+  width: 100%;
+  height: auto;
+`;

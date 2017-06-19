@@ -5,11 +5,13 @@
   `main.html` file.
 **/
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from '../../ui/layouts';
 import 'normalize-css'; // normalize helps standardize browser defaults
+import React from 'react';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import { App } from '../../ui/layouts';
+import store from '../../reducers/index';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+render(<Provider {...{ store }}><App/></Provider>, document.getElementById('app'));
 
 module.hot.accept();

@@ -1,4 +1,4 @@
-// webpack.config.js
+/* webpack.config.js */
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -12,16 +12,12 @@ module.exports = {
       loader: 'react-hot-loader!babel-loader',
     }, {
       test: /\.css$/,
-      use: {
-        loader: 'css-loader',
-        options: {},
-      },
+      loader: 'css-loader',
+      options: {},
     }, {
       test: /\.(ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
-      options: {
-        name: 'fonts/[name].[ext]',
-      },
+      options: { name: 'fonts/[name].[ext]' },
     }],
   },
   resolve: {

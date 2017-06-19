@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/**
+  The `<List/>` component...
+**/
 
-const List = ({ children }) => <div className='list'>{ children }</div>;
+import styled from 'styled-components';
 
-List.propTypes = { children: PropTypes.node.isRequired };
-
-export default List;
+export default styled.div`margin-top: -4px;`;

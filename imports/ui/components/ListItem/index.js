@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/**
+  The `<ListItem/>` component...
+**/
 
-export default class ListItem extends React.PureComponent {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    isHalf: PropTypes.bool.isRequired,
-  }
+import styled from 'styled-components';
 
-  render() {
-    const { children, isHalf } = this.props;
-
-    return (
-      <div className={`list-item ${isHalf ? 'half' : 'full'}`}>
-        { children }
-      </div>
-    );
-  }
-}
+export default styled.div`
+  width: ${props => (props.isHalf ? '50' : '100')}%;
+  color: ${props => (props.fontColor || '#fff')};
+  background: ${props => (props.backgroundColor || '#000')};
+  border: 1px solid ${props => (props.borderColor || '#393939')};
+  text-align: center;
+  padding: 0.5em;
+  font-size: 18px;
+  font-family: 'Futura';
+  line-height: 1.6em;
+  box-sizing: border-box;
+  float: left;
+`;

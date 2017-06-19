@@ -9,11 +9,11 @@ Getting started with RD-Listen is quick and easy. From your terminal, use [Git](
 ```shell
 # clone project from github
 git clone https://github.com/mqschwanda/RD-Listen.git <project-name>
-# install NPM packages through meteor
-meteor npm install
+# install node packages
+npm install
 ```
 
-RD-Listen relies on a few packages via NPM that are not included in the source. To satisfy all dependencies, make sure to run `meteor npm install` from the root of RD-Listen before attempting to start it up.
+RD-Listen relies on a few packages via NPM that are not included in the source. To satisfy all dependencies, make sure to run `npm install` from the root of RD-Listen before attempting to start it up.
 
 ### Create New GitHub Repository
 First [create your GitHub repo](https://github.com/) and run the terminal code below to link project to this new repository. (GitHub Help: [Changing a remote's URL](https://help.github.com/articles/changing-a-remote-s-url/))

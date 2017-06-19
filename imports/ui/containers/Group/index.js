@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import update from 'react-addons-update';
 
 import { Banner, List, ListItem } from '../../components';
@@ -8,11 +9,12 @@ const breakpoint = 500;
 const isOdd = array => array.length % 2;
 const push = (array, value) => update(array, { $push: value });
 
+@connect(store => ({ size: store.size }))
 export default class Group extends React.PureComponent {
   static propTypes = {
     banner: PropTypes.string.isRequired,
     list: PropTypes.arrayOf(String).isRequired,
-    size: PropTypes.object.isRequired,
+    size: PropTypes.object,
   }
 
   constructor(props) {
@@ -22,8 +24,7 @@ export default class Group extends React.PureComponent {
   }
 
   shouldComponentUpdate(nextProps) {
-    if ((nextProps.size.width > breakpoint) === this.state.isHalf) return false;
-    return true;
+    return (nextProps.size.width > breakpoint) !== this.state.isHalf;
   }
 
   componentDidUpdate() { this.setState(this.handleState(this.props)); }
