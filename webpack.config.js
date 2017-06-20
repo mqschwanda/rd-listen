@@ -11,7 +11,7 @@ const config = {
     loaders: [{
       test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader',
+      loader: process.env.NODE_ENV === 'production' ? 'babel-loader' : 'react-hot-loader',
     }, {
       test: /\.css$/,
       loader: 'style-loader!css-loader',
