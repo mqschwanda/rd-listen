@@ -1,13 +1,10 @@
 /* webpack.config.js */
 
-/* eslint-disable no-var */
+// var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
+const config = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './imports/startup/client/index.js',
   ],
   module: {
@@ -28,7 +25,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: `${__dirname}/client`,
+    path: `${__dirname}/client/bundle`,
     publicPath: '/bundle',
     filename: 'index.js',
   },
@@ -43,3 +40,16 @@ module.exports = {
     hot: true,
   },
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({ compressor: { warnings: false }, minimize: true })
+  );
+} else {
+  config.entry.push(
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080'
+  );
+}
+
+module.exports = config;

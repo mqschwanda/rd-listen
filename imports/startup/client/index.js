@@ -14,4 +14,4 @@ import store from '../../reducers/index';
 
 render(<Provider {...{ store }}><App/></Provider>, document.getElementById('app'));
 
-module.hot.accept();
+if (process.env.NODE_ENV === 'development') module.hot.accept();

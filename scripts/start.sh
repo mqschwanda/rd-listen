@@ -1,1 +1,3 @@
-node ./client/bundle.js
+echo Starting app...
+
+node server.js
