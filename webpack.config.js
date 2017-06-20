@@ -1,4 +1,9 @@
 /* webpack.config.js */
+
+/* eslint-disable no-var */
+
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -7,16 +12,12 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.js?$/,
+      test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
       loader: 'react-hot-loader!babel-loader',
     }, {
       test: /\.css$/,
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]_[local]--[hash:base64:8]',
-      },
+      loader: 'style-loader!css-loader',
     }, {
       test: /\.(ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
@@ -28,9 +29,15 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/client`,
-    publicPath: '/',
-    filename: 'bundle.js',
+    publicPath: '/bundle',
+    filename: 'index.js',
   },
+  plugins: [
+    // new HtmlWebpackPlugin({
+    //   title: 'Radio Disney Listen',
+    //   filename: 'index.html',
+    // }),
+  ],
   devServer: {
     contentBase: './client',
     hot: true,
