@@ -3,9 +3,9 @@
 var express = require('express');
 var path = require('path');
 
-var PWD = process.env.PWD;
+var appDir = path.resolve(__dirname, '../../../');
 var app = express();
-var publicDir = path.resolve(PWD, '/client/');
+var publicDir = path.resolve(appDir, 'public');
 
 app.use('/', express.static(publicDir));
 app.listen(8080);
