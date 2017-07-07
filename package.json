@@ -8,6 +8,7 @@
     "test": "node ./scripts/test.js",
     "setup": "node ./scripts/setup.js",
     "dev": "node ./scripts/dev.js",
+    "prod": "node ./scripts/prod.js",
     "lint": "node ./scripts/lint.js",
     "heroku-postbuild": "node ./scripts/postbuild.js"
   },

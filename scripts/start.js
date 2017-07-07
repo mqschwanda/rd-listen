@@ -1,7 +1,5 @@
 /* eslint-disable */
 
-var shell = require('shelljs');
+var startServer = require('./helpers/start-server');
 
-console.log('Starting app...');
-shell.exec('NODE_ENV=production && node ./imports/startup/server/index.js');
-console.log('App running!');
+startServer();

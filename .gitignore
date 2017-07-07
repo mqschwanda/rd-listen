@@ -1,6 +1,7 @@
 # Ignore files written by scripts #
 ###################################
 **/.htaccess
+**/index.html
 
 # Webpack Bundle #
 **/bundle
