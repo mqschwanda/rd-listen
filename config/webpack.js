@@ -3,6 +3,7 @@
 /* eslint-disable no-var, comma-dangle */
 
 var HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 var appDir = path.resolve(__dirname, '../');
@@ -52,7 +53,8 @@ module.exports = {
     filename: 'index.js' // the name of the output bundle
   },
   plugins: [
-    new HotModuleReplacementPlugin()
+    new HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin()
   ],
   devtool: 'source-map',
   devServer: {

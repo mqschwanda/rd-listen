@@ -2,6 +2,6 @@
 
 var shell = require('shelljs');
 
-shell.echo('Building App for heroku...');
+console.log('Building App for heroku...');
 shell.exec('NODE_ENV=production && node ./scripts/setup.js');
-shell.echo('Build Complete!');
+console.log('Build Complete!');

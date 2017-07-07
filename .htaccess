@@ -1,6 +1,5 @@
 <ifModule mod_rewrite.c>
 
-
   #######################################################################
   # GENERAL                                                             #
   #######################################################################
@@ -9,7 +8,6 @@
   Options +FollowSymLinks
   # If somebody opens a folder, hide all files from the resulting folder list
   IndexIgnore */*
-
 
   #######################################################################
   # REWRITING                                                           #
@@ -28,7 +26,7 @@
   RewriteRule ^(.*) https://%{HTTP_HOST}/$1 [R,L]
 
   # If we get to here, it means we are on https://
-  
+
   # If the file with the specified name in the browser doesn't exist
   RewriteCond %{REQUEST_FILENAME} !-f
 
@@ -36,7 +34,7 @@
   RewriteCond %{REQUEST_FILENAME} !-d
 
   # and we are not opening the root already (otherwise we get a redirect loop)
-  RewriteCond %{REQUEST_FILENAME} !\/$
+  RewriteCond %{REQUEST_FILENAME} !/$
 
   # Rewrite all requests to the root
   RewriteRule ^(.*) /

@@ -1,5 +1,8 @@
 /* eslint-disable */
 
-var shell = require('shelljs');
+var writeHtaccess = require('./write-htaccess');
+var buildWebpack = require('./build-webpack');
 
-shell.exec('./node_modules/.bin/webpack -p --progress --colors --config ./config/webpack.js');
+writeHtaccess().then(function() {
+  buildWebpack();
+}).catch(function(e) { console.log(e); });

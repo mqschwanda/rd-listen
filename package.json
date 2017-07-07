@@ -99,7 +99,7 @@
     "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^2.28.0",
+    "html-webpack-plugin": "^2.29.0",
     "locate-path": "^2.0.0",
     "normalize-css": "^2.3.1",
     "path": "^0.12.7",
