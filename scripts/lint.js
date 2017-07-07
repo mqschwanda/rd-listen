@@ -1,6 +1,4 @@
-/* eslint-disable */
-
-var shell = require('shelljs');
+import { exec } from 'shelljs';
 
 console.log('Linting with ESlint...');
-shell.exec('eslint ./**.js');
+exec('eslint ./**.js');

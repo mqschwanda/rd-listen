@@ -1,8 +1,6 @@
-/* eslint-disable */
+import { exec } from 'shelljs';
 
-var shell = require('shelljs');
-
-module.exports = function() {
+export default function () {
   console.log('\n############################\n# Building with webpack... #\n############################\n');
-  shell.exec('./node_modules/.bin/webpack -p --progress --colors --config ./config/webpack.js');
+  exec('./node_modules/.bin/webpack -p --progress --colors --config ./config/webpack.js');
 }

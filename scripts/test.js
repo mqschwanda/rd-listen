@@ -1,6 +1,4 @@
-/* eslint-disable */
+import { echo, exit } from 'shelljs';
 
-var shell = require('shelljs');
-
-shell.echo('Error: no test specified');
-shell.exit(1);
+echo('Error: no test specified');
+exit(1);

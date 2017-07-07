@@ -1,9 +1,7 @@
-/* eslint-disable */
+import fs from 'fs';
+import path from 'path';
 
-var fs = require('fs');
-var path = require('path');
-
-var contentArray = [
+const contentArray = [
   '<ifModule mod_rewrite.c>\n',
   '\n',
   '  #######################################################################\n',
@@ -48,25 +46,23 @@ var contentArray = [
   '</ifModule>\n',
 ];
 
-module.exports = function() {
-  return new Promise(function(resolve, error) {
-    if (!fs.existsSync(path.resolve(__dirname, '../.htaccess'))) {
-      console.log('\n#############################\n# Creating Apache Config... #\n#############################\n');
-      var stream = fs.createWriteStream('.htaccess');
-      stream.once('open', (fd) => {
-        for (var i = 0; i < contentArray.length;) {
-          stream.write(contentArray[i]);
-          if (contentArray.length - 1 === i) {
-            return stream.end(function() {
-              console.log('Apache Config File Created!');
-              return resolve();
-            });
-          } else { i += 1; }
-        }
-      });
-    } else {
-      console.log('Apache Config File Already Exists');
-      return resolve();
-    }
-  });
-}
+export default () => new Promise((resolve, error) => {
+  if (!fs.existsSync(path.resolve(__dirname, '../.htaccess'))) {
+    console.log('\n#############################\n# Creating Apache Config... #\n#############################\n');
+    const stream = fs.createWriteStream('.htaccess');
+    stream.once('open', (fd) => {
+      for (let i = 0; i < contentArray.length;) {
+        stream.write(contentArray[i]);
+        if (contentArray.length - 1 === i) {
+          return stream.end(() => {
+            console.log('Apache Config File Created!');
+            return resolve();
+          });
+        } i += 1;
+      }
+    });
+  } else {
+    console.log('Apache Config File Already Exists');
+    return resolve();
+  }
+});

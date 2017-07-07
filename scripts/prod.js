@@ -1,11 +1,7 @@
-/* eslint-disable */
+import { writeHtaccess, buildWebpack, startServer } from './helpers';
 
-var writeHtaccess = require('./helpers/write-htaccess');
-var buildWebpack = require('./helpers/build-webpack');
-var startServer = require('./helpers/start-server');
-
-writeHtaccess().then(function() {
+writeHtaccess().then(() => {
   buildWebpack();
-}).then(function() {
+}).then(() => {
   startServer();
-}).catch(function(e) { console.log(e); });
+}).catch((e) => { console.log(e); });

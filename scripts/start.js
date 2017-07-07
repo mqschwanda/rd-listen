@@ -1,5 +1,3 @@
-/* eslint-disable */
-
-var startServer = require('./helpers/start-server');
+import { startServer } from './helpers';
 
 startServer();

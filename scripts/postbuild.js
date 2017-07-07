@@ -1,7 +1,5 @@
-/* eslint-disable */
-
-var shell = require('shelljs');
+import { exec } from 'shelljs';
 
 console.log('Building App for heroku...');
-shell.exec('NODE_ENV=production && node ./scripts/setup.js');
+exec('NODE_ENV=production && babel-node ./scripts/setup.js');
 console.log('Build Complete!');

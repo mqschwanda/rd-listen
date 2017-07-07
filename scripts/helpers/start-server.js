@@ -1,9 +1,7 @@
-/* eslint-disable */
+import { exec } from 'shelljs';
 
-var shell = require('shelljs');
-
-module.exports = function() {
+export default function () {
   console.log('Starting app...');
-  shell.exec('NODE_ENV=production && node ./imports/startup/server/index.js');
+  exec('NODE_ENV=production && babel-node ./imports/startup/server/index.js');
   console.log('App running!');
 }

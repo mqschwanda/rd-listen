@@ -1,41 +1,34 @@
 /* webpack.config.js */
 
-/* eslint-disable no-var, comma-dangle */
+/* eslint-disable- no-var, comma-dangle */
 
-var HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+import { HotModuleReplacementPlugin } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
 
-var appDir = path.resolve(__dirname, '../');
-var isDev = process.env.NODE_ENV === 'development';
-var isProd = process.env.NODE_ENV === 'production';
+const appDir = path.resolve(__dirname, '../');
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = {
+export default {
   context: path.resolve(appDir), // the base directory for resolving entry points and loaders from configuration
   entry: [ // the point or points to enter the application
-    path.join(appDir, 'imports/startup/client/index.js')
+    path.join(appDir, 'imports/startup/client/index.js'),
   ],
   module: {
     loaders: [{
       test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-      options: {
-        presets: ['es2015', 'react', 'stage-2'],
-        plugins: [
-          'transform-react-jsx',
-          'transform-decorators-legacy',
-          'transform-class-properties'
-        ]
-      }
+      options: {},
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      loader: 'style-loader!css-loader',
     }, {
       test: /\.(ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
-      options: { name: 'fonts/[name].[ext]' }
-    }]
+      options: { name: 'fonts/[name].[ext]' },
+    }],
   },
   resolve: {
     alias: {
@@ -43,15 +36,15 @@ module.exports = {
       modules$: path.resolve(appDir, 'imports/modules/index.js'),
       components$: path.resolve(appDir, 'imports/ui/components/index.js'),
       containers$: path.resolve(appDir, 'imports/ui/containers/index.js'),
-      layouts$: path.resolve(appDir, 'imports/ui/layouts/index.js')
+      layouts$: path.resolve(appDir, 'imports/ui/layouts/index.js'),
     },
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: path.join(appDir, 'public'), // the output directory as an absolute path
     pathinfo: isDev, // include comments in bundles with information about the contained modules
     publicPath: '', // the prefix to every URL created by the runtime or loaders
-    filename: 'bundle/index.js' // the name of the output bundle
+    filename: 'bundle/index.js', // the name of the output bundle
   },
   plugins: [
     new HotModuleReplacementPlugin(),
@@ -65,9 +58,9 @@ module.exports = {
       minify: {
         collapseWhitespace: true,
         preserveLineBreaks: !isProd,
-        removeComments: isProd
-      }
-    })
+        removeComments: isProd,
+      },
+    }),
   ],
   devtool: 'source-map',
   devServer: {
@@ -78,7 +71,7 @@ module.exports = {
     hot: true, // enable webpack's hot module replacement feature
     overlay: { // shows a full-screen overlay in the browser when there are compiler errors or warnings
       warnings: true,
-      errors: true
-    }
-  }
+      errors: true,
+    },
+  },
 };

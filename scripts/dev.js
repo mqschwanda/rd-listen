@@ -1,6 +1,12 @@
-/* eslint-disable */
+import { exec } from 'shelljs';
 
-var shell = require('shelljs');
+// import webpack from 'webpack';
+// import webpackConfig from '../config/webpack.js';
+//
+// const bundler = webpack(webpackConfig);
+//
+// console.log('Starting Dev Server with Webpack...');
+// bundler.run();
 
-console.log('Starting Dev Server with Webpack...');
-shell.exec('NODE_ENV=development && webpack-dev-server -d --progress --colors --watch --config ./config/webpack.js');
+
+exec('NODE_ENV=development && babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server -d --progress --colors --watch --config ./config/webpack.js');
