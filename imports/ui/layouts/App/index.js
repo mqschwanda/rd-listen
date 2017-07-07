@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import sizeMe from 'react-sizeme';
 import { connect } from 'react-redux';
 import { injectGlobal } from 'styled-components';
-import { Group } from '../../containers';
-import { content } from '../../../modules';
-import { updateSize } from '../../../reducers/size';
+
+import { Group } from 'containers';
+import { content } from 'modules';
+import { updateSize } from 'reducers/size';
 
 injectGlobal`
   @font-face {

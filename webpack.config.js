@@ -36,11 +36,11 @@ module.exports = {
   },
   resolve: {
     alias: {
+      reducers: path.resolve(__dirname, 'imports/reducers'),
+      modules$: path.resolve(__dirname, 'imports/modules/index.js'),
       components$: path.resolve(__dirname, 'imports/ui/components/index.js'),
       containers$: path.resolve(__dirname, 'imports/ui/containers/index.js'),
-      layouts$: path.resolve(__dirname, 'imports/ui/layouts/index.js'),
-      pages$: path.resolve(__dirname, 'imports/ui/pages/index.js'),
-      modules$: path.resolve(__dirname, 'imports/modules/index.js')
+      layouts$: path.resolve(__dirname, 'imports/ui/layouts/index.js')
     },
     extensions: ['*', '.js', '.jsx']
   },

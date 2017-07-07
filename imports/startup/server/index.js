@@ -1,7 +1,18 @@
-/**
-  Allow images to be loaded from Amazon Web Server where they are stored.
-**/
+/* eslint-disable no-var, prefer-arrow-callback, prefer-template */
 
-// import { BrowserPolicy } from 'meteor/browser-policy-common';
-//
-// BrowserPolicy.content.allowImageOrigin('s3.amazonaws.com');
+var express = require('express');
+var path = require('path');
+
+var app = express();
+var publicDir = path.join(__dirname, '/client/');
+
+// viewed at http://localhost:8080
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(publicDir, 'index.html'));
+// });
+
+app.use('/', express.static(publicDir));
+
+// app.use('/', express.static(path.join(publicDir, 'index.html')));
+
+app.listen(8080);

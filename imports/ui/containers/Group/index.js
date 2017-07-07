@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import update from 'react-addons-update';
 
-import { Banner, List, ListItem } from '../../components';
+import { Banner, List, ListItem } from 'components';
 
 const breakpoint = 500;
 const isOdd = array => array.length % 2;

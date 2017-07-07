@@ -9,9 +9,9 @@ import 'normalize-css'; // normalize helps standardize browser defaults
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { App } from '../../ui/layouts';
-import store from '../../reducers/index';
+import { App } from 'layouts';
+import store from 'reducers/index';
 
 render(<Provider {...{ store }}><App/></Provider>, document.getElementById('app'));
 
-if (process.env.NODE_ENV === 'development') module.hot.accept();
+if (module && module.hot) module.hot.accept();
