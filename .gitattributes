@@ -39,6 +39,7 @@
 
 # templates
 *.ejs text
+*.ejs linguist-language=javascript
 *.hbt text
 *.jade text
 *.haml text
