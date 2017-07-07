@@ -4,14 +4,14 @@
   "description": "Application description.",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node ./scripts/start.js",
-    "test": "babel-node ./scripts/test.js",
-    "setup": "babel-node ./scripts/setup.js",
-    "dev": "babel-node ./scripts/dev.js",
-    "prod": "babel-node ./scripts/prod.js",
-    "lint": "babel-node ./scripts/lint.js",
-    "clean": "babel-node ./scripts/clean.js",
-    "heroku-postbuild": "babel-node ./scripts/postbuild.js"
+    "start": "node -r babel-register ./scripts/start.js",
+    "test": "node -r babel-register ./scripts/test.js",
+    "setup": "node -r babel-register ./scripts/setup.js",
+    "dev": "node -r babel-register ./scripts/dev.js",
+    "prod": "node -r babel-register ./scripts/prod.js",
+    "lint": "node -r babel-register ./scripts/lint.js",
+    "clean": "node -r babel-register ./scripts/clean.js",
+    "heroku-postbuild": "node -r babel-register ./scripts/postbuild.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
