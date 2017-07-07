@@ -1,1 +1,1 @@
-./node_modules/.bin/webpack -p --progress --colors --config ./webpack.config.js
+./node_modules/.bin/webpack -p --progress --colors --config ./webpack.config.babel.js

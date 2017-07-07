@@ -1,1 +1,5 @@
-NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js -d --progress --colors --watch --hot --config ./webpack.config.js
+echo \"Starting Dev Server with Webpack...\" &&
+
+NODE_ENV=development &&
+
+webpack-dev-server -d --progress --colors --watch

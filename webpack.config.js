@@ -1,56 +1,68 @@
 /* webpack.config.js */
 
-// var HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+/* eslint-disable no-var, comma-dangle */
 
-const config = {
-  entry: [
-    './imports/startup/client/index.js',
+var HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
+var path = require('path');
+
+var isDev = process.env.NODE_ENV === 'development';
+
+module.exports = {
+  context: path.resolve(__dirname), // the base directory for resolving entry points and loaders from configuration
+  entry: [ // the point or points to enter the application
+    path.join(__dirname, 'imports', 'startup', 'client', 'index.js')
   ],
   module: {
     loaders: [{
       test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
-      loader: process.env.NODE_ENV === 'production' ? 'babel-loader' : 'react-hot-loader',
-      // loader: 'babel-loader!react-hot-loader',
+      loader: 'babel-loader',
+      options: {
+        presets: ['es2015', 'react', 'stage-2'],
+        plugins: [
+          'transform-react-jsx',
+          'transform-decorators-legacy',
+          'transform-class-properties'
+        ]
+      }
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader',
+      loader: 'style-loader!css-loader'
     }, {
       test: /\.(ttf|eot|woff|woff2)$/,
       loader: 'file-loader',
-      options: { name: 'fonts/[name].[ext]' },
-    }],
+      options: { name: 'fonts/[name].[ext]' }
+    }]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      components$: path.resolve(__dirname, 'imports/ui/components/index.js'),
+      containers$: path.resolve(__dirname, 'imports/ui/containers/index.js'),
+      layouts$: path.resolve(__dirname, 'imports/ui/layouts/index.js'),
+      pages$: path.resolve(__dirname, 'imports/ui/pages/index.js'),
+      modules$: path.resolve(__dirname, 'imports/modules/index.js')
+    },
+    extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: `${__dirname}/client/bundle`,
-    publicPath: '/bundle',
-    filename: 'index.js',
+    path: path.join(__dirname, 'client', 'bundle'), // the output directory as an absolute path
+    pathinfo: isDev, // include comments in bundles with information about the contained modules
+    publicPath: '/bundle/', // the prefix to every URL created by the runtime or loaders
+    filename: 'index.js' // the name of the output bundle
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   title: 'Radio Disney Listen',
-    //   filename: 'index.html',
-    // }),
+    new HotModuleReplacementPlugin()
   ],
+  devtool: 'source-map',
   devServer: {
-    contentBase: './client',
-    hot: true,
-  },
+    compress: true, // enable gzip compression for everything served
+    contentBase: path.join(__dirname, 'client'), // tell the server where to serve static files from
+    watchContentBase: true, // content base file changes will trigger a full page reload
+    publicPath: '/bundle/', // the prefix to every URL created by the runtime or loaders
+    hot: true, // enable webpack's hot module replacement feature
+    overlay: { // shows a full-screen overlay in the browser when there are compiler errors or warnings
+      warnings: true,
+      errors: true
+    }
+  }
 };
-
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({ compressor: { warnings: false }, minimize: true })
-  );
-} else {
-  config.entry.push(
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080'
-  );
-}
-
-module.exports = config;
