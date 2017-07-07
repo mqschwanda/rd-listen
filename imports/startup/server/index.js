@@ -8,4 +8,4 @@ var app = express();
 var publicDir = path.resolve(appDir, 'public');
 
 app.use('/', express.static(publicDir));
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
