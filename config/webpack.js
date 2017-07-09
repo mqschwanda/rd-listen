@@ -1,7 +1,5 @@
 /* webpack.config.js */
 
-/* eslint-disable- no-var, comma-dangle */
-
 import { HotModuleReplacementPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
@@ -16,19 +14,23 @@ export default {
     path.join(appDir, 'imports/startup/client/index.js'),
   ],
   module: {
-    loaders: [{
-      test: /\.(js|jsx)?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      options: {},
-    }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader',
-    }, {
-      test: /\.(ttf|eot|woff|woff2)$/,
-      loader: 'file-loader',
-      options: { name: 'fonts/[name].[ext]' },
-    }],
+    loaders: [
+      {
+        test: /\.(js|jsx)?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {},
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+      }, {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        },
+      },
+    ],
   },
   resolve: {
     alias: {
@@ -38,7 +40,11 @@ export default {
       containers$: path.resolve(appDir, 'imports/ui/containers/index.js'),
       layouts$: path.resolve(appDir, 'imports/ui/layouts/index.js'),
     },
-    extensions: ['*', '.js', '.jsx'],
+    extensions: [
+      '*',
+      '.js',
+      '.jsx',
+    ],
   },
   output: {
     path: path.join(appDir, 'public'), // the output directory as an absolute path
