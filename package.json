@@ -11,7 +11,7 @@
     "prod": "node -r babel-register ./scripts/prod.js",
     "lint": "node -r babel-register ./scripts/lint.js",
     "clean": "node -r babel-register ./scripts/clean.js",
-    "heroku-postbuild": "node -r babel-register ./scripts/postbuild.js"
+    "heroku-postbuild": "node -r babel-register ./scripts/heroku-postbuild.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -30,61 +30,6 @@
     "react-test-renderer": "^15.5.4",
     "webpack-dev-server": "^2.4.5"
   },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "plugins": [
-      "react",
-      "class-property"
-    ],
-    "extends": [
-      "airbnb/base",
-      "plugin:react/recommended"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true,
-      "es6": true
-    },
-    "globals": {
-      "server": false,
-      "browser": false,
-      "expect": false
-    },
-    "parser": "babel-eslint",
-    "rules": {
-      "import/no-unresolved": 0,
-      "import/no-extraneous-dependencies": 0,
-      "import/extensions": 0,
-      "no-underscore-dangle": [
-        "error",
-        {
-          "allow": [
-            "_id",
-            "_ensureIndex",
-            "_verifyEmailToken",
-            "_resetPasswordToken",
-            "_name"
-          ]
-        }
-      ],
-      "max-len": [
-        "error",
-        {
-          "ignoreComments": true,
-          "ignoreTrailingComments": true,
-          "ignoreUrls": true
-        }
-      ],
-      "class-methods-use-this": 0
-    }
-  },
   "dependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
@@ -99,13 +44,14 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.23.0",
-    "commondir": "^1.0.1",
+    "bluebird": "^3.5.0",
+    "chalk": "^2.0.1",
     "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "file-loader": "^0.11.2",
     "fs-extra": "^3.0.1",
     "html-webpack-plugin": "^2.29.0",
-    "locate-path": "^2.0.0",
+    "multispinner": "^0.2.1",
     "normalize-css": "^2.3.1",
     "path": "^0.12.7",
     "prop-types": "^15.5.8",
@@ -116,9 +62,9 @@
     "react-redux": "^5.0.5",
     "react-sizeme": "^2.3.2",
     "redux": "^3.7.0",
-    "shelljs": "^0.7.8",
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.0",
     "webpack": "^2.6.1"
-  }
+  },
+  "false": {}
 }

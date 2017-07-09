@@ -1,4 +1,6 @@
-export { default as writeHtaccess } from './write-htaccess';
-export { default as buildWebpack } from './build-webpack';
-export { default as startServer } from './start-server';
-export { default as removeFile } from './remove-file';
+export { default as writeFile } from './write-file';
+export { default as removeFiles } from './remove-files';
+export { default as log } from './log';
+export { default as shellExec } from './shell-exec';
+export { default as htaccess } from './htaccess';
+export { default as bashScripts } from './bash-scripts';

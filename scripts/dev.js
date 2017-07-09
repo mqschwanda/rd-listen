@@ -1,4 +1,17 @@
-import { exec } from 'shelljs';
+/* eslint-disable max-len */
+
+import { shellExec, log, bashScripts } from './helpers';
+
+/*
+  START DEV SERVER
+*/
+log.header('starting dev server');
+shellExec(bashScripts.dev).then((success) => {
+  log.success(success || 'dev server saterted');
+  /*
+    DONE!
+  */
+}).catch(log.error);
 
 // import webpack from 'webpack';
 // import webpackConfig from '../config/webpack.babel.js';
@@ -7,6 +20,3 @@ import { exec } from 'shelljs';
 //
 // console.log('Starting Dev Server with Webpack...');
 // bundler.run();
-
-
-exec('NODE_ENV=development && node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server -d --progress --colors --watch --config ./config/webpack.babel.js');
