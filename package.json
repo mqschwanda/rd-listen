@@ -1,6 +1,10 @@
 {
   "name": "rd-listen",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.x.x",
+    "npm": "5.x.x"
+  },
   "description": "Application description.",
   "license": "MIT",
   "scripts": {
@@ -28,7 +32,7 @@
     "mocha": "^3.4.2",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -60,10 +64,10 @@
     "react-addons-update": "^15.5.2",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
-    "react-sizeme": "^2.3.2",
-    "redux": "^3.7.0",
+    "react-sizeme": "^2.3.4",
+    "redux": "^3.7.1",
     "style-loader": "^0.18.2",
-    "styled-components": "^2.1.0",
+    "styled-components": "^2.1.1",
     "webpack": "^2.6.1"
   },
   "false": {}
