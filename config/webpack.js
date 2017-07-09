@@ -1,8 +1,13 @@
+/* eslint-disable max-len */
+
 /* webpack.config.js */
 
-import { HotModuleReplacementPlugin } from 'webpack';
+import { HotModuleReplacementPlugin, EnvironmentPlugin, optimize } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
+
+const { UglifyJsPlugin } = optimize;
+
 
 const appDir = path.resolve(__dirname, '../');
 const isDev = process.env.NODE_ENV === 'development';
@@ -63,9 +68,20 @@ export default {
       template: path.resolve(appDir, 'imports/ui/templates/index.ejs'),
       minify: {
         collapseWhitespace: true,
-        preserveLineBreaks: !isProd,
+        preserveLineBreaks: isDev,
         removeComments: isProd,
       },
+    }),
+    new EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+    }),
+    new UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      beautify: isDev,
+      comments: isDev,
+      sourceMap: true,
     }),
   ],
   devtool: 'source-map',

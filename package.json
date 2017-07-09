@@ -15,7 +15,8 @@
     "prod": "node -r babel-register ./scripts/prod.js",
     "lint": "node -r babel-register ./scripts/lint.js",
     "clean": "node -r babel-register ./scripts/clean.js",
-    "heroku-postbuild": "node -r babel-register ./scripts/heroku-postbuild.js"
+    "heroku-postbuild": "node -r babel-register ./scripts/heroku-postbuild.js",
+    "git-push": "node -r babel-register ./scripts/git-push.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -72,5 +73,6 @@
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.1",
     "webpack": "^2.6.1"
-  }
+  },
+  "false": {}
 }

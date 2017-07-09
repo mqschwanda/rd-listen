@@ -4,5 +4,5 @@ export default {
   lint: 'eslint . --ext=.js',
   buildWebpack: ' node -r babel-register ./node_modules/.bin/webpack -p --progress --colors --config ./config/webpack.js',
   startServer: 'NODE_ENV=production node -r babel-register ./imports/startup/server/index.js',
-  test: 'echo Error: no test specified && exit 1',
+  test: './node_modules/mocha/bin/mocha ./**/*.tests.js --compilers js:babel-core/register',
 };
