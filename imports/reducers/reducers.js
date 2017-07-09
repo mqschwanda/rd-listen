@@ -1,5 +1,4 @@
-
 import { combineReducers } from 'redux';
-import { sizeReducer } from './size';
+import { reducer as size } from './size';
 
-export default combineReducers({ size: sizeReducer });
+export default combineReducers({ size });

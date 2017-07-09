@@ -4,6 +4,8 @@ import reducers from './reducers';
 
 const store = createStore(reducers);
 
-store.subscribe(() => { console.log('store change', store.getState()); });
+if (process.env.NODE_ENV !== 'production') {
+  store.subscribe(() => { console.log('store change', store.getState()); });
+}
 
 export default store;
