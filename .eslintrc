@@ -8,6 +8,7 @@
   },
   "plugins": [
     "react",
+    "babel",
     "class-property"
   ],
   "extends": [
@@ -23,7 +24,8 @@
   "globals": {
     "server": false,
     "browser": false,
-    "expect": false
+    "expect": false,
+    "propTypes": true
   },
   "parser": "babel-eslint",
   "rules": {

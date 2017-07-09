@@ -1,6 +1,8 @@
+/* eslint-disable max-len */
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; // eslint-disable-line no-unused-vars
 import update from 'react-addons-update';
 
 import { Banner, List, ListItem } from 'components';
@@ -33,7 +35,7 @@ export default class Group extends React.PureComponent {
     let newList;
     const { list, size } = props;
     const isHalf = size.width > breakpoint;
-    if (isOdd(list) && isHalf) newList = push(list, [(<div>&nbsp;</div>)]);
+    if (isOdd(list) && isHalf) newList = push(list, [(<div key='nbsp'>&nbsp;</div>)]);
     else newList = [...list];
 
     return { newList, isHalf };
@@ -43,6 +45,7 @@ export default class Group extends React.PureComponent {
     const { banner } = this.props;
     const { newList, isHalf } = this.state;
     return (
+      /* eslint-disable react/jsx-key */
       <div>
         <Banner {...{ banner }}/>
         <List>

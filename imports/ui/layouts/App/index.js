@@ -2,8 +2,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import sizeMe from 'react-sizeme';
-import { connect } from 'react-redux';
+import sizeMe from 'react-sizeme'; // eslint-disable-line no-unused-vars
+import { connect } from 'react-redux'; // eslint-disable-line no-unused-vars
 import { injectGlobal } from 'styled-components';
 
 import { Group } from 'containers';
@@ -32,5 +32,5 @@ export default class App extends React.PureComponent {
   static propTypes = { size: PropTypes.object }
   shouldComponentUpdate(nextProps) { return this.props.size !== nextProps.size; }
   componentDidUpdate() { this.props.dispatch(updateSize(this.props.size)); }
-  render() { return <div>{ content.map(group => <Group {...group}/>) }</div>; }
+  render() { return <div>{ content.map(group => <Group {...group}/>) }</div>; } // eslint-disable-line react/jsx-key
 }

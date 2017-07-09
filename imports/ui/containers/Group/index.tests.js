@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 /**
   Testing our test component
 **/

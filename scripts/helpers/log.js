@@ -5,7 +5,7 @@ import Chalk from 'chalk';
 const chalk = new Chalk.constructor({ level: 1 });
 
 // create a promise to run a script in a child process which resolves on finish
-const consoleChalk = (string, ...args) => new Promise((resolve, reject) => {
+const consoleChalk = (string, ...args) => new Promise((resolve) => {
   // get the string for logging
   let output = typeof string === 'string' ? string : JSON.stringify(string);
   const options = [...args];
