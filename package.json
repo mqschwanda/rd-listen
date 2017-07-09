@@ -5,7 +5,7 @@
     "node": "8.x.x",
     "npm": "5.x.x"
   },
-  "description": "Application description.",
+  "description": "...",
   "license": "MIT",
   "scripts": {
     "start": "node -r babel-register ./scripts/start.js",
@@ -69,6 +69,5 @@
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.1",
     "webpack": "^2.6.1"
-  },
-  "false": {}
+  }
 }
