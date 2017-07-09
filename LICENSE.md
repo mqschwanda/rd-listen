@@ -1,3 +1,9 @@
+********************************************************************************
+  NOTICE:
+  The images used in this application are owned by The Walt Disney Company and
+  are governed by their own copyright and trademark. This content cannot be
+  used in any way that is forbid in the aforementioned guidelines.
+********************************************************************************
 
 MIT License
 
