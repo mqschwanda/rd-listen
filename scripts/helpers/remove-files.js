@@ -35,7 +35,7 @@ const handlePromise = () => new Promise((resolve, reject) => {
   spinner.on('err', reject);
 });
 
-export default function removeFiles(args) {
+export default function removeFiles(...args) {
   // an array of file paths
   const filePaths = handleArgs(args);
   // build spinner list from file paths but display them as relative instead of absolute

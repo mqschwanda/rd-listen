@@ -58,6 +58,7 @@
     "multispinner": "^0.2.1",
     "normalize-css": "^2.3.1",
     "path": "^0.12.7",
+    "prettyjson": "^1.2.1",
     "prop-types": "^15.5.8",
     "react": "^15.6.1",
     "react-addons-pure-render-mixin": "^15.5.2",
