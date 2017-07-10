@@ -42,39 +42,44 @@ String.prototype.getRemotes = function () {
 // get the base of the branch from descriptive string
 String.prototype.getBranchBase = function () { return this.split(' ')[1].trim(); };
 
-log.header('pushing to github');
-shellExec('git remote -v', { stdout: false }).then((remoteString) => {
-  shellExec('git branch', { stdout: false }).then((branchString) => {
-    const schema = [{
-      type: 'list', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
-      name: 'remote', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
-      message: 'git remote', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
-      default: 'origin', // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
-      choices: remoteString.getRemotes() || 'origin', // Choices array or a function returning a choices array. If defined as a function, the first parameter will be the current inquirer session answers. Array values can be simple strings, or objects containing a name (to display in list), a value (to save in the answers hash) and a short (to display after selection) properties. The choices array can also contain a Separator.
-    }, {
-      type: 'input', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
-      name: 'branch', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
-      message: 'git repo branch', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
-      default: branchString.getBranchBase() || 'master', // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
-    }, {
-      type: 'input', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
-      name: 'message', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
-      message: 'commit message', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
-      default: `${new Date()}`, // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
-    }];
 
-    prompt(schema).then(({ remote, branch, message }) => {
-      // console.log({ remote, branch, message });
-      // Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD <YOUR-FILE>'.
-      shellExec('git add .').then(() => {
-        // Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
-        shellExec(`git commit -m "${message}"`).then(() => {
-          // Pushes the changes in your local repository up to the `<BRANCH_NAME>` of the remote repository you specified as origin
-          shellExec(`git push ${remote} ${branch}`).then(() => {
-            log.success('push success');
-            /*
-              DONE!
-            */
+shellExec('clear').then(() => {
+  log.header('pushing to github');
+  shellExec('git remote -v', { stdout: false }).then((remoteString) => {
+    shellExec('git branch', { stdout: false }).then((branchString) => {
+      const schema = [{
+        type: 'list', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
+        name: 'remote', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
+        message: 'REMOTE: the name of the remote for the destination repository\n ', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
+        default: 'origin', // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
+        choices: remoteString.getRemotes() || 'origin', // Choices array or a function returning a choices array. If defined as a function, the first parameter will be the current inquirer session answers. Array values can be simple strings, or objects containing a name (to display in list), a value (to save in the answers hash) and a short (to display after selection) properties. The choices array can also contain a Separator.
+      }, {
+        type: 'input', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
+        name: 'branch', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
+        message: 'BRANCH: the name of the branch for the destination repository\n ', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
+        default: `${branchString.getBranchBase() ? branchString.getBranchBase() : 'master'}`, // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
+        filter: string => string.trim(), // Receive the user input and return the filtered value to be used inside the program. The value returned will be added to the Answers hash.
+      }, {
+        type: 'input', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor
+        name: 'message', // The name to use when storing the answer in the answers hash. If the name contains periods, it will define a path in the answers hash.
+        message: 'MESSAGE: the commit message associated with this commit\n ', // The question to print. If defined as a function, the first parameter will be the current inquirer session answers.
+        default: '<TIMESTAMP>', // Default value(s) to use if nothing is entered, or a function that returns the default value(s). If defined as a function, the first parameter will be the current inquirer session answers.
+        filter: string => (string === '<TIMESTAMP>' ? `${new Date()}` : string), // Receive the user input and return the filtered value to be used inside the program. The value returned will be added to the Answers hash.
+      }];
+
+      prompt(schema).then(({ remote, branch, message }) => {
+        // console.log({ remote, branch, message });
+        // Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD <YOUR-FILE>'.
+        shellExec('git add .').then(() => {
+          // Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+          shellExec(`git commit -m "${message}"`).then(() => {
+            // Pushes the changes in your local repository up to the `<BRANCH_NAME>` of the remote repository you specified as origin
+            shellExec(`git push ${remote} ${branch}`).then(() => {
+              log.success('push success');
+              /*
+                DONE!
+              */
+            }).catch(log.error);
           }).catch(log.error);
         }).catch(log.error);
       }).catch(log.error);
