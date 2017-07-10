@@ -11,6 +11,7 @@
     "clean": "node -r babel-register ./scripts/clean.js",
     "dev": "node -r babel-register ./scripts/dev.js",
     "git-push": "node -r babel-register ./scripts/git-push.js",
+    "heroku-destroy": "node -r babel-register ./scripts/heroku-destroy.js",
     "heroku-postbuild": "node -r babel-register ./scripts/heroku-postbuild.js",
     "heroku-push": "node -r babel-register ./scripts/heroku-push.js",
     "heroku-create": "node -r babel-register ./scripts/heroku-create.js",

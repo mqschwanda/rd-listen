@@ -1,31 +1,30 @@
+import inquirer from 'inquirer';
 
-import { shellExec, log, prompt } from './helpers';
+import { shellExec, log, promptSchema } from './helpers';
 
-const schema = {
-  properties: {
-    appName: {
-      type: 'string', // Specify the type of input to expect.
-      message: 'heroku app name',
-      default: 'mqs-heroku-push', // Default value to use if no value is entered.
-    },
-    remote: {
-      type: 'string', // Specify the type of input to expect.
-      message: 'git remote for heroku',
-      default: 'testherokupush', // Default value to use if no value is entered.
-    },
-  },
-};
+require('./helpers/string-prototypes');
 
-log.header('creating a heroku application');
-prompt(schema).then(({ appName, remote }) => {
-  // Create a Heroku app from the command line
-  shellExec(`heroku create -a  ${appName}`).then(() => {
-    // # Link to Heroku with a git remote.
-    shellExec(`heroku git:remote -a ${appName} -r ${remote}`).then(() => {
-      log.success(`The application is now hosted at \`https://${appName}.herokuapp.com\``);
-      /*
-        DONE!
-      */
+const prompt = inquirer.createPromptModule();
+const { herokuCreate } = promptSchema;
+
+shellExec('clear').then(() => {
+  log.header('creating a heroku application');
+  prompt(herokuCreate).then(({ appName, remote }) => {
+    // Create a Heroku app from the command line
+    shellExec(`heroku create ${appName ? `-a ${appName}` : ''}`).then((stdout) => {
+      const actualAppName = appName || stdout.toHerokuAppName();
+      // Link to Heroku with a git remote.
+      shellExec(`heroku git:remote -a ${actualAppName} -r ${remote}`).then(() => {
+        /*
+          EXECUTE THE GIT PUSH TO HEROKU
+        */
+        // Pushes the changes in your github repository to the heroku app
+        shellExec(`git push ${remote} master`).then(() => {
+          /*
+            DONE!
+          */
+        }).catch(log.error);
+      }).catch(log.error);
     }).catch(log.error);
   }).catch(log.error);
 }).catch(log.error);

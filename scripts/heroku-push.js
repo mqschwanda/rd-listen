@@ -1,30 +1,27 @@
+import inquirer from 'inquirer';
+import { shellExec, log, promptSchema } from './helpers';
 
-import { shellExec, log, prompt } from './helpers';
+const { herokuPush } = promptSchema;
+const prompt = inquirer.createPromptModule();
 
-log.header('pushing to heroku');
-shellExec('git remote -v').then((remotes) => {
-  // log.success(`The application is now hosted at \`https://${appName}.herokuapp.com\``);
-  const schema = {
-    properties: {
-      remote: {
-        type: 'string', // Specify the type of input to expect.
-        message: 'git remote',
-        default: 'testing', // Default value to use if no value is entered.
-      },
-      branch: {
-        type: 'string', // Specify the type of input to expect.
-        message: 'git repo branch',
-        default: 'master', // Default value to use if no value is entered.
-      },
-    },
-  };
-  prompt(schema).then(({ remote, branch }) => {
-    // Pushes the changes in your github repository to the heroku app
-    shellExec(`git push ${remote} ${branch}`).then(() => {
-      // log.success(`The application is now hosted at \`https://${appName}.herokuapp.com\``);
-      /*
-        DONE!
-      */
+shellExec('clear').then(() => {
+  log.header('pushing to heroku app');
+  // get all git remotes from this repo
+  shellExec('git remote -v', { stdout: false }).then((remotes) => {
+    // get the git branches from this repo
+    shellExec('git branch', { stdout: false }).then((branches) => {
+      // run cli prompt with schema defined above
+      prompt(herokuPush({ remotes, branches })).then(({ remote, branch }) => {
+        /*
+          EXECUTE THE GIT PUSH TO HEROKU
+        */
+        // Pushes the changes in your github repository to the heroku app
+        shellExec(`git push ${remote} ${branch}`).then(() => {
+          /*
+            DONE!
+          */
+        }).catch(log.error);
+      }).catch(log.error);
     }).catch(log.error);
   }).catch(log.error);
 }).catch(log.error);
