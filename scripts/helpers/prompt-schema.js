@@ -1,4 +1,4 @@
-import './string-prototypes';
+import './prototypes';
 
 const gitPush = ({ remotes, branches }) => [{
   type: 'list', // Type of the prompt. Defaults: input - Possible values: input, confirm, list, rawlist, expand, checkbox, password, editor

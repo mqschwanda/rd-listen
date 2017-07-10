@@ -1,8 +1,7 @@
 import inquirer from 'inquirer';
 
 import { shellExec, log, promptSchema } from './helpers';
-
-require('./helpers/string-prototypes');
+import './helpers/prototypes';
 
 const prompt = inquirer.createPromptModule();
 const { herokuCreate } = promptSchema;
