@@ -5,3 +5,4 @@ export { default as shellExec } from './shell-exec';
 export { default as htaccess } from './htaccess';
 export { default as prompt } from './prompt';
 export { default as bashScripts } from './bash-scripts';
+export { default as promptSchema } from './prompt-schema';
