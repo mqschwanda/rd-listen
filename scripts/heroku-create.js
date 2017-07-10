@@ -7,7 +7,7 @@ const prompt = inquirer.createPromptModule();
 const { herokuCreate } = promptSchema;
 
 shellExec('clear').then(() => {
-  log.header('creating a heroku application');
+  log.header('creating heroku app');
   prompt(herokuCreate).then(({ appName, remote }) => {
     // Create a Heroku app from the command line
     shellExec(`heroku create ${appName ? `-a ${appName}` : ''}`).then((stdout) => {
@@ -19,6 +19,7 @@ shellExec('clear').then(() => {
         */
         // Pushes the changes in your github repository to the heroku app
         shellExec(`git push ${remote} master`).then(() => {
+          log.success(`created heroku app: ${actualAppName}`);
           /*
             DONE!
           */
