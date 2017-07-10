@@ -8,15 +8,17 @@
   "description": "...",
   "license": "MIT",
   "scripts": {
-    "start": "node -r babel-register ./scripts/start.js",
-    "test": "node -r babel-register ./scripts/test.js",
-    "setup": "node -r babel-register ./scripts/setup.js",
-    "dev": "node -r babel-register ./scripts/dev.js",
-    "prod": "node -r babel-register ./scripts/prod.js",
-    "lint": "node -r babel-register ./scripts/lint.js",
     "clean": "node -r babel-register ./scripts/clean.js",
+    "dev": "node -r babel-register ./scripts/dev.js",
+    "git-push": "node -r babel-register ./scripts/git-push.js",
     "heroku-postbuild": "node -r babel-register ./scripts/heroku-postbuild.js",
-    "git-push": "node -r babel-register ./scripts/git-push.js"
+    "heroku-push": "node -r babel-register ./scripts/heroku-push.js",
+    "heroku-create": "node -r babel-register ./scripts/heroku-create.js",
+    "lint": "node -r babel-register ./scripts/lint.js",
+    "prod": "node -r babel-register ./scripts/prod.js",
+    "setup": "node -r babel-register ./scripts/setup.js",
+    "start": "node -r babel-register ./scripts/start.js",
+    "test": "node -r babel-register ./scripts/test.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -57,6 +59,7 @@
     "file-loader": "^0.11.2",
     "fs-extra": "^3.0.1",
     "html-webpack-plugin": "^2.29.0",
+    "inquirer": "^3.2.0",
     "locate-path": "^2.0.0",
     "multispinner": "^0.2.1",
     "normalize-css": "^2.3.1",
