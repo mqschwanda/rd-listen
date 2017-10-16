@@ -31,6 +31,6 @@ export default [{
     'AMAZON FREETIME UNLIMITED',
     'DISNEY JUNIOR APP',
     'iHEART RADIO',
-    'RADIO DISNEY JUNIOR APP',
+    // 'RADIO DISNEY JUNIOR APP',
   ],
 }];
