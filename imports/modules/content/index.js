@@ -24,13 +24,4 @@ export default [{
     'SPOTIFY',
     'TUNEIN RADIO',
   ],
-}, {
-  key: 2,
-  banner: aws('radio-disney-junior.png'),
-  list: [
-    'AMAZON FREETIME UNLIMITED',
-    'DISNEY JUNIOR APP',
-    'iHEART RADIO',
-    // 'RADIO DISNEY JUNIOR APP',
-  ],
 }];
