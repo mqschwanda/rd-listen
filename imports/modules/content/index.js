@@ -10,6 +10,7 @@ export default [{
     'iHEART RADIO',
     'POPSTAR!',
     'RADIODISNEY.COM',
+    'SIRIUSXM SATELLITE RADIO',
     'SPOTIFY',
     'TUNEIN RADIO',
   ],
