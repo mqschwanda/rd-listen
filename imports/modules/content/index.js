@@ -5,7 +5,6 @@ export default [{
   banner: aws('radio-disney.png'),
   list: [
     'AHA RADIO',
-    'APPLE MUSIC',
     'HD RADIO',
     'iHEART RADIO',
     'POPSTAR!',
@@ -19,7 +18,6 @@ export default [{
   banner: aws('radio-disney-country.png'),
   list: [
     '99.1 KRDC (LOS ANGELES, CA)',
-    'APPLE MUSIC',
     'iHEART RADIO',
     'SPOTIFY',
     'TUNEIN RADIO',
