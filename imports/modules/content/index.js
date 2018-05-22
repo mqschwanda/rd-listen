@@ -18,7 +18,7 @@ export default [{
   list: [
     '99.1 KRDC (LOS ANGELES, CA)',
     'iHEART RADIO',
-    'RadioDisney.com',
+    'RADIODISNEY.COM',
     'SONOS',
     'SPOTIFY',
     'TUNEIN RADIO',
