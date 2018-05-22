@@ -29,8 +29,20 @@ injectGlobal`
 @sizeMe()
 @connect()
 export default class App extends React.PureComponent {
-  static propTypes = { size: PropTypes.object }
-  shouldComponentUpdate(nextProps) { return this.props.size !== nextProps.size; }
-  componentDidUpdate() { this.props.dispatch(updateSize(this.props.size)); }
-  render() { return <div>{ content.map(group => <Group {...group}/>) }</div>; } // eslint-disable-line react/jsx-key
+  static propTypes = {
+    size: PropTypes.object
+  }
+  shouldComponentUpdate(nextProps) {
+    return this.props.size !== nextProps.size;
+  }
+  componentDidUpdate() {
+    this.props.dispatch(updateSize(this.props.size));
+  }
+  render() {
+    return (
+      <div>
+        {content.map((group, key) => <Group {...group} key={key} />)}
+      </div>
+    );
+  } // eslint-disable-line react/jsx-key
 }

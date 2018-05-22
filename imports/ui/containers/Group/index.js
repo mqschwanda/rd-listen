@@ -11,7 +11,7 @@ const breakpoint = 500;
 const isOdd = array => array.length % 2;
 const push = (array, value) => update(array, { $push: value });
 
-@connect(store => ({ size: store.size }))
+@connect(({ size }) => ({ size }))
 export default class Group extends React.PureComponent {
   static propTypes = {
     banner: PropTypes.string.isRequired,
@@ -31,11 +31,12 @@ export default class Group extends React.PureComponent {
 
   componentDidUpdate() { this.setState(this.handleState(this.props)); }
 
-  handleState(props) {
+  handleState(props = this.props) {
     let newList;
     const { list, size } = props;
     const isHalf = size.width > breakpoint;
-    if (isOdd(list) && isHalf) newList = push(list, [(<div key='nbsp'>&nbsp;</div>)]);
+    const nbsp = <div key='nbsp'>&nbsp;</div>;
+    if (isOdd(list) && isHalf) newList = push(list, [nbsp]);
     else newList = [...list];
 
     return { newList, isHalf };
@@ -49,7 +50,9 @@ export default class Group extends React.PureComponent {
       <div>
         <Banner {...{ banner }}/>
         <List>
-          { newList.map((children, key) => <ListItem {...{ children, isHalf, key }}/>) }
+          {newList.map((children, key) => (
+            <ListItem {...{ children, isHalf, key }} />
+          )) }
         </List>
       </div>
     );

@@ -5,7 +5,9 @@
 
 import styled from 'styled-components';
 
-export default styled.img.attrs({ src: props => props.banner })`
+export default styled.img.attrs({
+  src: ({ banner }) => banner,
+})`
   width: 100%;
   height: auto;
 `;

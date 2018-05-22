@@ -5,10 +5,10 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  width: ${props => (props.isHalf ? '50' : '100')}%;
-  color: ${props => (props.fontColor || '#fff')};
-  background: ${props => (props.backgroundColor || '#000')};
-  border: 1px solid ${props => (props.borderColor || '#393939')};
+  width: ${({ isHalf }) => (isHalf ? '50' : '100')}%;
+  color: ${({ fontColor }) => (fontColor || '#fff')};
+  background: ${({ backgroundColor }) => (backgroundColor || '#000')};
+  border: 1px solid ${({ borderColor }) => (borderColor || '#393939')};
   text-align: center;
   padding: 0.5em;
   font-size: 18px;
