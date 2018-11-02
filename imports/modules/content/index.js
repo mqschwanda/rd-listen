@@ -4,12 +4,9 @@ export default [{
   key: 0,
   banner: aws('radio-disney.png'),
   list: [
-    'AHA RADIO',
     'iHEART RADIO',
     'RADIODISNEY.COM',
     'SIRIUSXM SATELLITE RADIO',
-    'SONOS',
-    'SPOTIFY',
     'TUNEIN RADIO',
   ],
 }, {
@@ -19,8 +16,6 @@ export default [{
     '99.1 KRDC (LOS ANGELES, CA)',
     'iHEART RADIO',
     'RADIODISNEY.COM',
-    'SONOS',
-    'SPOTIFY',
     'TUNEIN RADIO',
   ],
 }];
