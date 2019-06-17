@@ -5,7 +5,6 @@ export default [{
   banner: aws('radio-disney.png'),
   list: [
     'iHEART RADIO',
-    'MUSIC CHOICE',
     'RADIODISNEY.COM',
     'SIRIUSXM SATELLITE RADIO',
     'TUNEIN RADIO',
