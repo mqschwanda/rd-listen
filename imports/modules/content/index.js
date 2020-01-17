@@ -6,6 +6,7 @@ export default [{
   list: [
     'AMAZON ALEXA',
     'iHEART RADIO',
+    'MUSIC CHOICE',
     'RADIODISNEY.COM',
     'SIRIUSXM SATELLITE RADIO',
     'TUNEIN RADIO',
@@ -17,6 +18,7 @@ export default [{
     '99.1 KRDC (LOS ANGELES, CA)',
     'AMAZON ALEXA',
     'iHEART RADIO',
+    'MUSIC CHOICE',
     'RADIODISNEY.COM',
     'TUNEIN RADIO',
   ],
